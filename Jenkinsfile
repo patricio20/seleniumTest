@@ -8,10 +8,10 @@ pipeline {
       parallel {
         stage('Inicio') {
           steps {
-              echo ("value : " + env.path_tmp)           
+              echo ("value : " + env.path_tmp)       
               script {
-                      env.path_tmp=tmp/$BUILD_ID
-                      mkdir -p env.path_tmp
+                      path_tmp=tmp/$BUILD_ID
+                      mkdir -p $path_tmp
               }
            }          
         }
@@ -25,7 +25,7 @@ pipeline {
     stage('Compila (CC)') {
       steps {
         sh '''echo "Compila..."
-echo env.path_tmp
+echo ("value : " + env.path_tmp)
 echo "Compila..." > $TMP"/testcompila"
 '''
       }
