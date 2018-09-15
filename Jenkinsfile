@@ -3,8 +3,9 @@ pipeline {
   stages {
     stage('Inicio') {
       steps {
-        sh '''echo "Inicio...."
-./var/jenkins_home/scripts/deploy.sh DESA'''
+        sh '''echo "---1 ---"
+cd /var/jenkins_home
+ls -lt'''
       }
     }
   }
