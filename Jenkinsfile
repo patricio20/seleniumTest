@@ -11,7 +11,7 @@ pipeline {
               echo ("value : " + env.path_tmp)           
               script {
                       env.path_tmp=tmp/$BUILD_ID
-                      mkdir -p $env.path_tmp
+                      mkdir -p env.path_tmp
               }
            }          
         }
@@ -25,7 +25,7 @@ pipeline {
     stage('Compila (CC)') {
       steps {
         sh '''echo "Compila..."
-echo $env.path_tmp
+echo env.path_tmp
 echo "Compila..." > $TMP"/testcompila"
 '''
       }
