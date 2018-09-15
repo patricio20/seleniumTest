@@ -10,9 +10,9 @@ pipeline {
           steps {
                    
               script {
-              echo ("value : " + env.path_tmp)  
-                      path_tmp=tmp/$BUILD_ID
-                     # mkdir -p $path_tmp
+                     echo ("value : " + env.path_tmp)  
+                     path_tmp=tmp/$BUILD_ID
+                     echo ("value : " + env.path_tmp) 
               }
            }          
         }
