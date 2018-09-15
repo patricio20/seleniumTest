@@ -5,7 +5,9 @@ pipeline {
       parallel {
         stage('Inicio') {
           steps {
-            sh '/var/jenkins_home/scripts/deploy.sh DESA'
+            sh '''## Crea temporales
+TMP=tmp/$BUILD_ID
+mkdir -p $TMP'''
           }
         }
         stage('Notifica') {
@@ -18,9 +20,8 @@ pipeline {
     stage('Compila (CC)') {
       steps {
         sh '''echo "Compila..."
-tmpjob="tmp/"$BUILD_ID
-mkdir $tmpjob   
-echo "Compila..." > $tmpjob"/testcompila"
+echo $TMP
+echo "Compila..." > $TMP"/testcompila"
 '''
       }
     }
