@@ -1,17 +1,18 @@
 pipeline {
   agent any
   environment { 
-     path_tmp = ''
+     path_tmp = '1'
   }
   stages {
     stage('Inicio') {
       parallel {
         stage('Inicio') {
           steps {
-              echo ("value : " + env.path_tmp)       
+                   
               script {
+              echo ("value : " + env.path_tmp)  
                       path_tmp=tmp/$BUILD_ID
-                      mkdir -p $path_tmp
+                     # mkdir -p $path_tmp
               }
            }          
         }
