@@ -1,7 +1,6 @@
 package com.tem.test;
 
 import java.util.List;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -45,7 +44,7 @@ public class smokeTest {
 		btnElement.click();
 		//WebDriverWait wait2 = new WebDriverWait(driver,5);
 		
-		//Mesa tramitaci髇 - Paso1: Datos Solicitante		
+		//Mesa tramitaci贸n - Paso1: Datos Solicitante		
 		WebElement selectTipoPersona = driver.findElement(By.name("tipoPersonaIniciaTramiteSeleccionado.codElemento"));
 		List<WebElement> optionsTP = selectTipoPersona.findElements(By.tagName("option"));
 		for (WebElement option : optionsTP) {
@@ -67,13 +66,13 @@ public class smokeTest {
 		wait3.until(ExpectedConditions.visibilityOf(eBtnContinuar));
 		eBtnContinuar.click();		
 				
-		//Mesa tramitaci髇 - Paso2: Datos Solicitud
+		//Mesa tramitaci贸n - Paso2: Datos Solicitud
 		WebDriverWait wait4 = new WebDriverWait(driver,30);		
 		WebElement eSelectTramite = driver.findElement(By.name("tramiteSeleccionado.codElemento"));
 		wait4.until(ExpectedConditions.visibilityOf(eSelectTramite));
 		List<WebElement> opTramite = eSelectTramite.findElements(By.tagName("option"));
 		for (WebElement option : opTramite) {
-		   if("ADMINISTRACI覰 DE APORTES".equals(option.getText()))
+		   if("ADMINISTRACI脫N DE APORTES".equals(option.getText()))
 		       option.click();   
 		}
 		WebDriverWait wait5 = new WebDriverWait(driver,30);	
@@ -81,7 +80,7 @@ public class smokeTest {
 		wait5.until(ExpectedConditions.visibilityOf(eSelectMotivo));
 		List<WebElement> opMotivo = eSelectMotivo.findElements(By.tagName("option"));
 		for (WebElement option : opMotivo) {
-		   if("ACREDITACI覰 ANTICIPADA R蒅IMEN D.L. 19990".equals(option.getText()))
+		   if("ACREDITACI脫N ANTICIPADA R脡GIMEN D.L. 19990".equals(option.getText()))
 		       option.click();   
 		}		
 						
@@ -103,7 +102,7 @@ public class smokeTest {
 		WebElement eSelectTipoDocumentoEmpl = driver.findElement(By.name("empresa.documentoIdentidad.tipoDocumentoIdentidad.codElemento"));
 		List<WebElement> optionsTDE = eSelectTipoDocumentoEmpl.findElements(By.tagName("option"));
 		for (WebElement option : optionsTDE) {
-		   if("REGISTRO 贜ICO DE CONTRIBUYENTES 11 D虶ITOS".equals(option.getText()))
+		   if("REGISTRO 脷NICO DE CONTRIBUYENTES 11 D脥GITOS".equals(option.getText()))
 		       option.click();   
 		}		
 		WebElement eNumDocumentoEmpl = driver.findElement(By.name("empresa.documentoIdentidad.numero"));
@@ -160,9 +159,9 @@ public class smokeTest {
 		WebElement eBotonFinPaso2 = driver.findElement(By.className("onpBotonPrincipal onpBotonContinuarPaso3"));	
 		eBotonFinPaso2.click();
 				
-		//Mesa tramitaci髇 - Paso3: Documentos Requeridos
+		//Mesa tramitaci贸n - Paso3: Documentos Requeridos
 		
-		//Mesa tramitaci髇 - Paso4: Generar Cargo
+		//Mesa tramitaci贸n - Paso4: Generar Cargo
 		
 		System.out.println(driver.getTitle());
 	}
