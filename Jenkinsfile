@@ -1,18 +1,19 @@
 pipeline {
   agent any
   environment { 
-     env_tmp = 'value'
+     path_tmp = ''
   }
   stages {
     stage('Inicio') {
       parallel {
         stage('Inicio') {
           steps {
-            echo ("value : " + env.env_tmp)
-            sh '''## Crea temporales
-TMP=tmp/$BUILD_ID
-mkdir -p $TMP'''
-          }
+              echo ("value : " + env.path_tmp)           
+              script {
+                      env.path_tmp=tmp/$BUILD_ID
+                      mkdir -p $env.path_tmp
+              }
+           }          
         }
         stage('Notifica') {
           steps {
@@ -24,7 +25,7 @@ mkdir -p $TMP'''
     stage('Compila (CC)') {
       steps {
         sh '''echo "Compila..."
-echo $TMP
+echo $env.path_tmp
 echo "Compila..." > $TMP"/testcompila"
 '''
       }
