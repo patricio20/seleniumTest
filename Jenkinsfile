@@ -1,7 +1,7 @@
 pipeline {
   agent any
   environment { 
-     path_tmp = '1'
+     TMP_PATH = 'tmp/'${env.BUILD_ID}
   }
   stages {
     stage('Inicio') {
@@ -9,11 +9,9 @@ pipeline {
         stage('Inicio') {
           steps {
                    
-              script {
-                     echo ("value : " + env.path_tmp)  
-                     path_tmp=tmp/$BUILD_ID
-                     echo ("value : " + env.path_tmp) 
-              }
+              sh '''
+                     echo ${env.path_tmp}
+              '''
            }          
         }
         stage('Notifica') {
