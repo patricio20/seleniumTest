@@ -18,7 +18,9 @@ pipeline {
     stage('Compila (CC)') {
       steps {
         sh '''echo "Compila..."
-echo "Compila..." > testcompila
+tmpjob="tmp/"$JOB_NAME
+mkdir $tmpjob   
+echo "Compila..." > $tmpjob"/testcompila"
 '''
       }
     }
