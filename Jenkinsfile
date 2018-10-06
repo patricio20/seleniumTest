@@ -2,7 +2,7 @@ pipeline {
   agent any
   environment { 
      TMP_PATH = "tmp/${env.BUILD_ID}"
-     CO = """${sh(returnStdout: true, script: "cat /var/jenkins_home/scripts/deploy.properties | grep INDRA_DESA | awk -F'=' '{print $2}' | awk -F',' '{print $1}' ")}"""
+     CO = """${sh(returnStdout: true, script: "cat /var/jenkins_home/scripts/deploy.properties | grep INDRA_DESA | cut -d '=' -f 2 ")}"""
   }
   stages {
     stage('Inicio') {
