@@ -31,14 +31,29 @@ pipeline {
         }
       }
     }
-    stage('Compila (CC)') {
+    stage('Compilación') {
       steps {
         echo "Compila..."
       }
     }
-    stage('Despliegua') {
+    stage('Análisis de código') {
       steps {
         echo "Despliegua..."
+      }
+    }
+    stage('Publicación') {
+      steps {
+        echo "Publicacion..."
+      }
+    }
+    stage('Despliegue') {
+      steps {
+        echo "Publicacion..."
+      }
+    }
+    stage('Pruebas unitarias') {
+      steps {
+        echo "Publicacion..."
       }
     }
   }
