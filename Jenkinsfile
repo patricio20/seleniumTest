@@ -7,8 +7,7 @@ pipeline {
     stage('Inicio') {
       parallel {
         stage('Inicio') {
-          steps {
-                   
+          steps {                   
               sh 'echo ${env.TMP_PATH}'
            }          
         }
@@ -21,16 +20,12 @@ pipeline {
     }
     stage('Compila (CC)') {
       steps {
-        sh '''echo "Compila..."
-echo ("value : " + env.path_tmp)
-echo "Compila..." > $TMP"/testcompila"
-'''
+        echo "Compila..."
       }
     }
     stage('Despliegua') {
       steps {
-        sh '''echo "Despliega..."
-echo "Despliega..." > tmpdespliega'''
+        echo "Despliegua..."
       }
     }
   }
