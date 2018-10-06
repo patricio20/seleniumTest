@@ -8,7 +8,7 @@ pipeline {
       parallel {
         stage('Inicio') {
           steps {                   
-              sh 'echo ${env.TMP_PATH}'
+              echo  "PATH = ${env.TMP_PATH}"
            }          
         }
         stage('Notifica') {
