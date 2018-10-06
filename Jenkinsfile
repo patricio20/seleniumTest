@@ -2,7 +2,10 @@ pipeline {
   agent any
   environment { 
      TMP_PATH = "tmp/${env.BUILD_ID}"
-     CO = """${sh(returnStdout: true, script: "cat /var/jenkins_home/scripts/deploy.properties | grep INDRA_DESA | cut -d '=' -f 2 ")}"""
+     CO = """${sh(returnStdout: true, script: "cat /var/jenkins_home/scripts/deploy.properties | grep INDRA_DESA | cut -d '=' -f 2 | cut -d ',' -f 1 ")}"""
+     AC = """${sh(returnStdout: true, script: "cat /var/jenkins_home/scripts/deploy.properties | grep INDRA_DESA | cut -d '=' -f 2 | cut -d ',' -f 2 ")}"""
+     DE = """${sh(returnStdout: true, script: "cat /var/jenkins_home/scripts/deploy.properties | grep INDRA_DESA | cut -d '=' -f 2 | cut -d ',' -f 3 ")}"""
+     PU = """${sh(returnStdout: true, script: "cat /var/jenkins_home/scripts/deploy.properties | grep INDRA_DESA | cut -d '=' -f 2 | cut -d ',' -f 4 ")}"""
   }
   stages {
     stage('Inicio') {
@@ -10,7 +13,10 @@ pipeline {
         stage('Inicio') {
           steps {                   
               echo  "PATH = ${env.TMP_PATH}"
-              echo  "CMD = ${env.CO}"
+              echo  "CO = ${env.CO}"
+              echo  "AC = ${env.AC}"
+              echo  "DE = ${env.DE}"
+              echo  "PU = ${env.PU}"
 
            }          
         }
