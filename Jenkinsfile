@@ -2,7 +2,7 @@ pipeline {
   agent any
   environment { 
      TMP_PATH = "tmp/${env.BUILD_ID}"
-     CMD = """${sh(returnStdout: true, script: "cat /var/jenkins_home/scripts")}"""
+     CMD = """${sh(returnStdout: true, script: "cat /var/jenkins_home/scripts/deploy.properties")}"""
   }
   stages {
     stage('Inicio') {
