@@ -2,10 +2,11 @@ pipeline {
   agent any
   environment { 
      TMP_PATH = "tmp/${env.BUILD_ID}"
-     CO = """${sh(returnStdout: true, script: "cat /var/jenkins_home/scripts/deploy.properties | grep INDRA_DESA | cut -d '=' -f 2 | cut -d ',' -f 1 ")}"""
-     AC = """${sh(returnStdout: true, script: "cat /var/jenkins_home/scripts/deploy.properties | grep INDRA_DESA | cut -d '=' -f 2 | cut -d ',' -f 2 ")}"""
-     DE = """${sh(returnStdout: true, script: "cat /var/jenkins_home/scripts/deploy.properties | grep INDRA_DESA | cut -d '=' -f 2 | cut -d ',' -f 3 ")}"""
-     PU = """${sh(returnStdout: true, script: "cat /var/jenkins_home/scripts/deploy.properties | grep INDRA_DESA | cut -d '=' -f 2 | cut -d ',' -f 4 ")}"""
+     TMP = "INDRA_DESA"
+     CO = """${sh(returnStdout: true, script: "cat /var/jenkins_home/scripts/deploy.properties | grep ${env.TMP} | cut -d '=' -f 2 | cut -d ',' -f 1 ")}"""
+     AC = """${sh(returnStdout: true, script: "cat /var/jenkins_home/scripts/deploy.properties | grep ${env.TMP} | cut -d '=' -f 2 | cut -d ',' -f 2 ")}"""
+     DE = """${sh(returnStdout: true, script: "cat /var/jenkins_home/scripts/deploy.properties | grep ${env.TMP} | cut -d '=' -f 2 | cut -d ',' -f 3 ")}"""
+     PU = """${sh(returnStdout: true, script: "cat /var/jenkins_home/scripts/deploy.properties | grep ${env.TMP} | cut -d '=' -f 2 | cut -d ',' -f 4 ")}"""
   }
   stages {
     stage('Inicio') {
